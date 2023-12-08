@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import {environment} from 'src/environments/environment';
-import { User } from 'src/app/_models';
+import { User,Expense } from 'src/app/_models';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -84,4 +84,27 @@ export class AccountService {
                 return x;
             }));
     }
+
+
+    //Expense API
+    getAllExpenses(){
+      return this.http.get<Expense[]>(`${environment.apiUrl}/expenses`);
+    }
+
+    insertExpense(expense: Expense) {
+      return this.http.post(`${environment.apiUrl}/expenses`, expense);
+  }
+
+  updateExpense(id: string, params: any){
+    return this.http.put(`${environment.apiUrl}/expenses/${id}`, params);
+    //return this.http.post(`${environment.apiUrl}/expenses`, expense);
+  }
+
+  deleteExpense(id:string){
+    return this.http.delete(`${environment.apiUrl}/expenses/${id}`);
+  }
+
+  getExpenseById(id: string) {
+    return this.http.get<Expense>(`${environment.apiUrl}/expenses/${id}`);
+}
 }

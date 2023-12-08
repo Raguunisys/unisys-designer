@@ -6,10 +6,12 @@ import { AuthGuard } from './_helpers';
 
 const indexModule = () => import('./index/index.module').then(x => x.IndexModule);
 const usersModule = () => import('./users/users.module').then(x => x.UsersModule);
+const expenseModule = () => import('./expense/expense.module').then(x => x.ExpenseModule);
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
+  { path: 'expenses', loadChildren: expenseModule, canActivate: [AuthGuard] },
   { path: 'index', loadChildren: indexModule },
 
   // otherwise redirect to home

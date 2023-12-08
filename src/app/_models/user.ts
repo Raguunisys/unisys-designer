@@ -6,3 +6,11 @@
     lastName?: string;
     token?: string;
 }
+
+export class Expense{
+  id?: string;
+  name?:string;
+  amount?:number;
+  category?:string;
+  date?:Date;
+}

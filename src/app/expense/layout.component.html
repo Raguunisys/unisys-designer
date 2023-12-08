@@ -9,8 +9,8 @@
 <body>
   <div class="navbar">
     <img class="logo" style="margin-right: 40px;" src="../assets/UIS_BIG.png" alt="Logo">
-    <a href="users">Home</a>
-    <a href="#">About</a>
+    <a href="expenses">Home</a>
+    <a href="expenses/dashboard">dashboard</a>
     <!-- <div class="dropdown">
         <button class="dropbtn">Tools<span class="dropdown-symbol"></span></button>
         <div class="dropdown-content">
@@ -37,10 +37,8 @@
     <!-- <a style="margin-left: 65%" href="logout">Logout</a> -->
     <button (click)="logout()" style="margin-left: 70%;border:none; background: none;outline:none; color:aliceblue">Logout</button>
   </div>
-  <div class="p-4">
-    <div class="container">
+    <div class="p-4">
         <router-outlet></router-outlet>
     </div>
-</div>
 </body>
 </html>

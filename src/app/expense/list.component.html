@@ -1,0 +1,33 @@
+﻿<h1>Users</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Add Expense</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 30%">Expense</th>
+            <th style="width: 30%">Amount</th>
+            <th style="width: 30%">Category</th>
+            <th style="width: 10%">Date</th>
+            <th style="width: 10%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let expense of expenses">
+            <td>{{expense.name}}</td>
+            <td>{{expense.amount}}</td>
+            <td>{{expense.category}}</td>
+            <td>{{expense.date}}</td>
+            <td style="white-space: nowrap">
+                <a routerLink="edit/{{expense.id}}" class="btn btn-sm btn-primary me-1">Edit</a>
+                <button (click)="deleteExpense(expense.id)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="expense.isDeleting">
+                    <span *ngIf="expense.isDeleting" class="spinner-border spinner-border-sm"></span>
+                    <span *ngIf="!expense.isDeleting">Delete</span>
+                </button>
+            </td>
+        </tr>
+        <tr *ngIf="!expenses">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
