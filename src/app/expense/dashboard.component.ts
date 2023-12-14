@@ -11,6 +11,10 @@ export class DahboardComponent implements OnInit {
   pieChart:any;
   doughnutChart:any;
   chartData?:any[];
+  advicetext:string="";
+  advices?:string[];
+  loading:boolean=false;
+  contentloaded:boolean=false;
   expensesSummaryDate: Map<string, number> = new Map();
   expensesSummaryCategory: Map<string, number> = new Map();
   monthlyExpensesdata: { [key: string]: number } = {};
@@ -258,5 +262,42 @@ export class DahboardComponent implements OnInit {
       });
 
     this.monthlyExpensesdata = Object.fromEntries(sortedEntries);
+  }
+
+  getAdvice(){
+    this.loading = true;
+    const combinedArray: (string | undefined)[] = this.categories?.map((item, index) => {
+      const total = this.categoryTotals?.[index];
+      return total !== undefined ? `${item} - ${total}` : undefined;
+    }) ?? [];
+
+    // Filtering out possible undefined elements if any
+    const validCombinedArray: string[] = combinedArray.filter((item): item is string => item !== undefined) as string[];
+
+
+    console.log(validCombinedArray)
+    this.accountService.getadvice(validCombinedArray)
+    .pipe(first())
+    .subscribe(advice =>{
+      this.advicetext=advice.candidates[0].output;
+      this.loading = false;
+      // Splitting the input text into an array based on the numbered points and bullet points
+ this.advices = this.advicetext.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n\*/g, '<br>').split(/\d+\./);
+console.log(this.advicetext.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>'));
+this.contentloaded=true;
+// Filter out empty strings and clean up formatting
+//const filteredArray = splitArray.filter(item => item.trim().length > 0)
+    });
+
+  }
+  utterance = new SpeechSynthesisUtterance();
+  Speak(){
+    //utterance.voice = selectedVoice;
+    this.utterance.text=this.advicetext;
+    window.speechSynthesis.speak(this.utterance);
+  }
+
+  Cancel(){
+    window.speechSynthesis.cancel();
   }
 }

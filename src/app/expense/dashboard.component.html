@@ -31,6 +31,22 @@
         </div>
       </div>
     </div>
-
+    <div class="col-12 mt-2">
+      <div class="card">
+        <div class="card-body">
+          <div *ngFor="let item of advices">
+            <p [innerHTML]="item"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-2">
+      <button [disabled]="loading" class="btn btn-primary " (click)="getAdvice()">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+        Do You Need a Advice?
+      </button>
+      <button *ngIf="contentloaded" class="ms-2 btn btn-primary" (click)="Speak()">Read</button>
+      <button *ngIf="contentloaded" class="ms-2 btn btn-primary" (click)="Cancel()">Cancel</button>
+    </div>
   </div>
 </div>

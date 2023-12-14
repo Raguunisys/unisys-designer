@@ -11,6 +11,8 @@ import { User,Expense } from 'src/app/_models';
 export class AccountService {
     private userSubject: BehaviorSubject<User | null>;
     public user: Observable<User | null>;
+    private apiUrl = `https://generativelanguage.googleapis.com/v1beta3/models/text-bison-001:generateText?key=AIzaSyCzQy5qAx0y6OBEFpYV7t7SA1cqHgz8pEo`;
+    requestBody:any;
 
     constructor(
         private router: Router,
@@ -115,5 +117,15 @@ export class AccountService {
 
   getExpenseById(id: string) {
     return this.http.get<Expense>(`${environment.apiUrl}/EXPNS/GetExpenseByID?ExpenseID=${id}&Email=${this.email}`);
+}
+
+  getadvice(text:any){
+    this.requestBody = {
+      prompt: {
+        text: `You are Financial expert based on my expenditure on some category provide me some advices that for my betterment.${text} in rupess india `
+      }
+    };
+   // return this.http.post<any>(this.apiUrl, requestBody, { headers });
+   return this.http.post<any>(this.apiUrl, this.requestBody);
 }
 }
