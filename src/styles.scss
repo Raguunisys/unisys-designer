@@ -4,8 +4,9 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: lightgray;
+  background: linear-gradient(135deg, #004d4d, #00ff99);
 }
+
 
 /* Style for the navigation bar */
 .navbar {
@@ -29,9 +30,12 @@ body {
 }
 
 .footer {
-  padding: 10px;
     background-color: rgba(00,49,52);
-    height: 60px;
+    padding: 10px;
+    text-align: center;
+  /* Stick the footer to the bottom */
+  position: sticky;
+  //bottom: 0;
 }
 
 /* Style for the dropdown container */
