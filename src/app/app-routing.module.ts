@@ -9,7 +9,7 @@ const usersModule = () => import('./users/users.module').then(x => x.UsersModule
 const expenseModule = () => import('./expense/expense.module').then(x => x.ExpenseModule);
 
 const routes: Routes = [
-  { path: '',  loadChildren: expenseModule, canActivate: [AuthGuard] },
+  { path: '',  loadChildren: indexModule },
   { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
   { path: 'expenses', loadChildren: expenseModule, canActivate: [AuthGuard] },
   { path: 'index', loadChildren: indexModule },
