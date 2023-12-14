@@ -1,37 +1,42 @@
-﻿<div class="container mt-4">
+﻿
+<div class="back"><div class="container mt-4">
   <div class="row justify-content-center">
+    <div class="col-4 text-center company__info">
+      <span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
+      <img src="../assets/UIS_BIG.png" alt="">
+    </div>
     <div class="col-md-6">
       <div class="card">
     <h4 class="text-center card-header">Register</h4>
     <div class="card-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="mb-3">
-                <label class="form-label">First Name</label>
-                <input type="textarea" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.value.firstName.errors }" />
-                <div *ngIf="submitted && form.value.firstName.errors" class="invalid-feedback">
-                    <div *ngIf="form.value.firstName.errors.required">First Name is required</div>
+                <label class="form-label">Name</label>
+                <input type="textarea" formControlName="TxtName" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.value.TxtName.errors }" />
+                <div *ngIf="submitted && form.value.TxtName.errors" class="invalid-feedback">
+                    <div *ngIf="form.value.TxtName.errors.required">Name is required</div>
                 </div>
             </div>
             <div class="mb-3">
-                <label class="form-label">Last Name</label>
-                <input type="textarea" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.value.lastName.errors }" />
-                <div *ngIf="submitted && form.value.lastName.errors" class="invalid-feedback">
-                    <div *ngIf="form.value.lastName.errors.required">Last Name is required</div>
+                <label class="form-label">Email</label>
+                <input type="email" formControlName="TxtEmail" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.value.TxtEmail.errors }" />
+                <div *ngIf="submitted && form.value.TxtEmail.errors" class="invalid-feedback">
+                    <div *ngIf="form.value.TxtEmail.errors.required">Last Name is required</div>
                 </div>
             </div>
             <div class="mb-3">
-                <label class="form-label">Username</label>
-                <input type="textarea" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.value.username.errors }" />
-                <div *ngIf="submitted && form.value.username.errors" class="invalid-feedback">
-                    <div *ngIf="form.value.username.errors.required">Username is required</div>
+                <label class="form-label">Phone</label>
+                <input type="textarea" formControlName="TxtPhone" class="form-control col-md-6" [ngClass]="{ 'is-invalid': submitted && form.value.TxtPhone.errors }" />
+                <div *ngIf="submitted && form.value.TxtPhone.errors" class="invalid-feedback">
+                    <div *ngIf="form.value.TxtPhone.errors.required">Phone is required</div>
                 </div>
             </div>
             <div class="mb-3">
                 <label class="form-label">Password</label>
-                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.value.password.errors }" />
-                <div *ngIf="submitted && form.value.password.errors" class="invalid-feedback">
-                    <div *ngIf="form.value.password.errors.required">Password is required</div>
-                    <div *ngIf="form.value.password.errors.minlength">Password must be at least 6 characters</div>
+                <input type="password" formControlName="TxtPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.value.password.errors }" />
+                <div *ngIf="submitted && form.value.TxtPassword.errors" class="invalid-feedback">
+                    <div *ngIf="form.value.TxtPassword.errors.required">Password is required</div>
+                    <div *ngIf="form.value.TxtPassword.errors.minlength">Password must be at least 6 characters</div>
                 </div>
             </div>
             <div>
@@ -39,7 +44,7 @@
                     <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
                     Register
                 </button>
-                <a routerLink="../login" class="btn btn-link">Cancel</a>
+                <a routerLink="../login" class="btn btn-link ms-2">Cancel</a>
             </div>
         </form>
     </div>
@@ -47,3 +52,4 @@
 </div>
   </div>
     </div>
+  </div>

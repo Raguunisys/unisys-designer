@@ -28,6 +28,12 @@ body {
     position: relative;
 }
 
+.footer {
+  padding: 10px;
+    background-color: rgba(00,49,52);
+    height: 60px;
+}
+
 /* Style for the dropdown container */
 .dropdown {
     position: relative;
@@ -135,3 +141,169 @@ input[type="number"] {
 input[type="number"] {
   width: 130px;
 }
+
+
+.jumbotron {
+  background-color: white;
+  padding: 4rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+}
+section {
+  padding-bottom: 3rem;
+}
+
+.section-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.back {
+  background: linear-gradient(135deg, #004d4d, #00ff99);
+  color: #fff;
+  height: 125vh;
+  padding-top: 7rem;
+}
+
+.indexpage {
+  background: white;
+}
+
+//Login
+.main-content{
+	width: 90%;
+	border-radius: 20px;
+	box-shadow: 0 5px 5px rgba(0,0,0,.4);
+  margin-left: 5rem;
+	//margin: 5em;
+	display: flex;
+}
+.company__info{
+	background-color: #004d4d;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: #fff;
+}
+.fa-android{
+	font-size:3em;
+}
+@media screen and (max-width: 640px) {
+	.main-content{width: 90%;}
+	.company__info{
+		display: none;
+	}
+	.login_form{
+		border-top-left-radius:20px;
+		border-bottom-left-radius:20px;
+	}
+}
+@media screen and (min-width: 642px) and (max-width:800px){
+	.main-content{width: 70%;}
+}
+.row > h2{
+	color:#004d4d;
+}
+.login_form{
+	background-color: #fff;
+	border-top-right-radius:20px;
+	border-bottom-right-radius:20px;
+	border-top:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+form{
+	padding: 0 2em;
+}
+.form__input{
+	width: 100%;
+	border:0px solid transparent;
+	border-radius: 0;
+	border-bottom: 1px solid #aaa;
+	padding: 1em .5em .5em;
+	padding-left: 2em;
+	outline:none;
+	margin:1.5em auto;
+	transition: all .5s ease;
+}
+.form__input:focus{
+	border-bottom-color: #004d4d;
+	box-shadow: 0 0 5px rgba(0,80,80,.4);
+	border-radius: 4px;
+}
+.btn{
+	transition: all .5s ease;
+	width: 45%;
+	border-radius: 30px;
+	color:#008080;
+	font-weight: 600;
+	background-color: #fff;
+	border: 1px solid #004d4d;
+	margin-top: 1.5em;
+	margin-bottom: 1em;
+}
+.btn:hover, .btn:focus{
+	background-color: #004d4d;
+	color:#fff;
+}
+
+//chat login
+
+.split-container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.left-panel {
+  flex: 1;
+  background-color: #007bff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.left-panel h2 {
+  margin-bottom: 30px;
+}
+
+.right-panel {
+  flex: 1;
+  background-image: url('https://via.placeholder.com/400'); /* Change URL to your preferred image */
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  max-width: 350px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-container form .form-group {
+  margin-bottom: 20px;
+}
+
+.form-container form label {
+  font-weight: bold;
+}
+
+.form-container form button {
+  width: 100%;
+}
+
+
+

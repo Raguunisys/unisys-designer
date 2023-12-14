@@ -21,10 +21,14 @@ export class AccountService {
     }
 
     public get userValue() {
-        return this.userSubject.value;
+      return this.userSubject.value;
     }
 
-    login(username: string, password: string) {
+    public get email(){
+      return localStorage.getItem('email');
+    }
+
+    login(email: string, password: string) {
         // return this.http.post<User>(`${environment.apiUrl}/users`, { username, password })
         //     .pipe(map(user => {
         //         // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -32,22 +36,26 @@ export class AccountService {
         //         this.userSubject.next(user);
         //         return user;
         //     }));
-        return this.http.get<User[]>(`${environment.apiUrl}/users?username=`+username).pipe(map(user=>{
-          localStorage.setItem('user', JSON.stringify(user[0]));
-                  this.userSubject.next(user[0]);
-                  return user[0];
+        return this.http.get(`${environment.apiUrl}/LGNFR/Login?email=`+email+`&password=`+password).pipe(map(user=>{
+          console.log(user);
+          if(user=="UserValidated"){
+            localStorage.setItem('email', email);
+              return email;
+          }
+          return "user is not valid";
+                //  this.userSubject.next(user[0]);
+
         }));
     }
 
     logout() {
         // remove user from local storage and set current user to null
-        localStorage.removeItem('user');
+        localStorage.removeItem('email');
         this.userSubject.next(null);
         this.router.navigate(['/account/login']);
     }
-
     register(user: User) {
-        return this.http.post(`${environment.apiUrl}/users`, user);
+        return this.http.post(`${environment.apiUrl}/USRFR/USRFR`, user);
     }
 
     getAll() {
@@ -88,23 +96,24 @@ export class AccountService {
 
     //Expense API
     getAllExpenses(){
-      return this.http.get<Expense[]>(`${environment.apiUrl}/expenses`);
+      return this.http.get<Expense[]>(`${environment.apiUrl}/EXPNS/GetExpense?email=${this.email}`);
     }
 
     insertExpense(expense: Expense) {
-      return this.http.post(`${environment.apiUrl}/expenses`, expense);
+      return this.http.post(`${environment.apiUrl}/EXPNS/AddExpense`, expense);
   }
 
-  updateExpense(id: string, params: any){
-    return this.http.put(`${environment.apiUrl}/expenses/${id}`, params);
+  updateExpense(params: any){
+    return this.http.post(`${environment.apiUrl}/EXPNS/UpdateExpense`, params);
     //return this.http.post(`${environment.apiUrl}/expenses`, expense);
   }
 
   deleteExpense(id:string){
-    return this.http.delete(`${environment.apiUrl}/expenses/${id}`);
+    console.log(id);
+    return this.http.get(`${environment.apiUrl}/EXPNS/DeleteExpense?ExpenseID=${id}&Email=${this.email}`);
   }
 
   getExpenseById(id: string) {
-    return this.http.get<Expense>(`${environment.apiUrl}/expenses/${id}`);
+    return this.http.get<Expense>(`${environment.apiUrl}/EXPNS/GetExpenseByID?ExpenseID=${id}&Email=${this.email}`);
 }
 }

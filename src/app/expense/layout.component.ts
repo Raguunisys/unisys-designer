@@ -9,7 +9,7 @@ export class LayoutComponent {
   }
   logout(){
     this.accountService.logout();
-    this.router.navigate(['index']);
+    this.router.navigate(['index/login']);
 
 }
  }

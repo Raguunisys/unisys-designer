@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    apiUrl: 'http://localhost:3000'
+    apiUrl:'http://ustr-mvm-4383:80/ABSC_REST_API/api' //'http://localhost:3000'
 };
 
 /*

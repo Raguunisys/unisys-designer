@@ -27,11 +27,12 @@ export class AddEditExpenseComponent implements OnInit {
 
         // form with validation rules
         this.form = this.formBuilder.group({
-            name: ['', Validators.required],
-            amount: ['', Validators.required],
-            category: ['', Validators.required],
-            date: ['', Validators.required],
-            userId:[this.accountService.userValue?.id]
+          ProductName: ['', Validators.required],
+          ProductCost: ['', Validators.required],
+          ProductCatogary: ['', Validators.required],
+          Date: ['', Validators.required],
+          Email:[this.accountService.email],
+          ExpenseID:[0]
         });
 
         this.title = 'Add Expense';
@@ -42,8 +43,10 @@ export class AddEditExpenseComponent implements OnInit {
             this.accountService.getExpenseById(this.id)
                 .pipe(first())
                 .subscribe(x => {
+                  console.log(this.form);
                     this.form.patchValue(x);
                     this.loading = false;
+                    this.form.get('Email')?.setValue(this.accountService.email);
                 });
         }
     }
@@ -80,7 +83,7 @@ export class AddEditExpenseComponent implements OnInit {
     private saveExpense() {
         // create or update user based on id param
         return this.id
-            ? this.accountService.updateExpense(this.id!, this.form.value)
+            ? this.accountService.updateExpense(this.form.value)
             : this.accountService.insertExpense(this.form.value);
     }
 }

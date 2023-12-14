@@ -1,5 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 import { AccountService } from 'src/app/_services';
 
@@ -7,7 +8,7 @@ import { AccountService } from 'src/app/_services';
 export class ListComponent implements OnInit {
     expenses?: any[];
 
-    constructor(private accountService: AccountService) {}
+    constructor(private accountService: AccountService,private router: Router) {}
 
     ngOnInit() {
         this.accountService.getAllExpenses()
@@ -16,10 +17,10 @@ export class ListComponent implements OnInit {
     }
 
     deleteExpense(id: string) {
-        const expense = this.expenses!.find(x => x.id === id);
-        expense.isDeleting = true;
+        const expense = this.expenses!.find(x => x.ExpenseID === id);
+       // expense.isDeleting = true;
         this.accountService.deleteExpense(id)
             .pipe(first())
-            .subscribe(() => this.expenses = this.expenses!.filter(x => x.id !== id));
+            .subscribe(() => this.expenses = this.expenses!.filter(x => x.ExpenseID !== id));
     }
 }

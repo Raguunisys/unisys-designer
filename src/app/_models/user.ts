@@ -1,16 +1,18 @@
 ﻿export class User {
     id?: string;
-    username?: string;
-    password?: string;
-    firstName?: string;
-    lastName?: string;
+    TxtName?: string;
+    TxtEmail?: string;
+    TxtPhone?: number;
+    TxtPassword?: string;
+    btnAdd?:string;
     token?: string;
 }
 
 export class Expense{
-  id?: string;
-  name?:string;
-  amount?:number;
-  category?:string;
-  date?:Date;
+  ProductName?: string;
+  ProductCost?:number;
+  ProductCatogary?:string;
+  Date?:Date;
+  Email?:string;
+  ExpenseID?:number;
 }

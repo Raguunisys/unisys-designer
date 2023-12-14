@@ -36,6 +36,66 @@
     </div> -->
     <a style="margin-left: 65%;" routerLink="login">Login</a>
   </div>
+<div class="indexpage">
+  <div *ngIf="IsHome" class="container">
+    <div class="jumbotron">
+      <h1 class="display-4 text-center">Low-Code/No-Code Platforms</h1>
+      <p class="lead text-center">Empowering users to build applications with minimal coding knowledge.</p>
+    </div>
+
+    <section id="about">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>About</h2>
+          <p>Low-Code/No-Code (LCNC) platforms enable users to create applications using visual interfaces, pre-built components, and drag-and-drop functionality. These platforms significantly reduce the need for traditional programming skills, allowing non-technical users to build software solutions quickly.</p>
+        </div>
+        <div class="col-md-6">
+          <img src="../assets/first.png" alt="About Image" class="section-img">
+        </div>
+      </div>
+    </section>
+
+    <section id="benefits">
+      <div class="row">
+        <div class="col-md-6 order-md-2">
+          <h2>Benefits</h2>
+          <ul>
+            <li>Rapid development and deployment of applications</li>
+            <li>Accessible to non-technical users</li>
+            <li>Cost-effective and time-saving</li>
+            <li>Enhanced collaboration between IT and business teams</li>
+            <li>Ability to prototype and iterate quickly</li>
+          </ul>
+        </div>
+        <div class="col-md-6 order-md-1">
+          <img src="../assets/second.png" alt="Benefits Image" class="section-img">
+        </div>
+      </div>
+    </section>
+
+    <section id="examples">
+      <div class="text-center">
+        <h2>Examples</h2>
+        <p>Several LCNC platforms exist in the market, including tools like <strong>Appian</strong>, <strong>OutSystems</strong>, <strong>Mendix</strong>, and <strong>Bubble</strong>.</p>
+        <img src="../assets/third.png" alt="Examples Image" class="section-img">
+      </div>
+    </section>
+
+    <!-- <section id="resources">
+      <div class="text-center">
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="https://www.forrester.com/report/the-forrester-wave-low-code-development-platforms-q2-2021">Forrester Wave Report on Low-Code Development Platforms</a></li>
+          <li><a href="https://blog.hubspot.com/customers/low-code-no-code-platforms">HubSpot - Understanding Low-Code/No-Code Platforms</a></li>
+        </ul>
+        <img src="https://via.placeholder.com/800x400" alt="Resources Image" class="section-img">
+      </div>
+    </section> -->
+  </div>
+</div>
   <router-outlet></router-outlet>
+  <div class="footer">
+    <p style="color: white; text-align: center;">&copy;copyrights CoreForce Team </p>
+  </div>
 </body>
 </html>

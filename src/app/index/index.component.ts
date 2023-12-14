@@ -8,4 +8,5 @@ import { Component,Input  } from '@angular/core';
 
 export class IndexComponent {
   @Input() navTitle: string = 'Register';
+  IsHome:boolean=true;
 }

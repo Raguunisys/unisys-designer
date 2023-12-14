@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AccountService, AlertService } from 'src/app/_services';
+import { IndexComponent } from './index.component';
 
 @Component({
  // selector: 'app-index',
@@ -20,15 +21,18 @@ export class RegisterComponent implements OnInit {
       private route: ActivatedRoute,
       private router: Router,
       private accountService: AccountService,
-      private alertService: AlertService
-  ) { }
+      private alertService: AlertService,
+      private index:IndexComponent
+  ) { this.index.IsHome=false}
 
   ngOnInit() {
       this.form = this.formBuilder.group({
-          firstName: ['', Validators.required],
-          lastName: ['', Validators.required],
-          username: ['', Validators.required],
-          password: ['', [Validators.required, Validators.minLength(6)]]
+        TxtName: ['', Validators.required],
+        TxtEmail: ['', Validators.required],
+        TxtPhone: [, [Validators.required,Validators.minLength(10)]],
+        TxtPassword: ['', [Validators.required, Validators.minLength(6)]],
+        btnAdd:['Add']
+
       });
   }
 
@@ -47,6 +51,7 @@ export class RegisterComponent implements OnInit {
       }
 
       this.loading = true;
+      console.log(this.form.value);
       this.accountService.register(this.form.value)
           .pipe(first())
           .subscribe({
