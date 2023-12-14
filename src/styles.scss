@@ -233,7 +233,7 @@ form{
 	box-shadow: 0 0 5px rgba(0,80,80,.4);
 	border-radius: 4px;
 }
-.btn{
+.cutbtn{
 	transition: all .5s ease;
 	width: 45%;
 	border-radius: 30px;
@@ -244,7 +244,7 @@ form{
 	margin-top: 1.5em;
 	margin-bottom: 1em;
 }
-.btn:hover, .btn:focus{
+.cutbtn:hover, .cutbtn:focus{
 	background-color: #004d4d;
 	color:#fff;
 }
